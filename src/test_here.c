@@ -1,46 +1,25 @@
 #include "include/seatest.h"
-#define LEN 268435456
-
-void sum1024_1(){
-    int a[1024];
-    int i;    
-    for(i = 0; i<1024; a[i++] = 1);
-    assert_int_equal(1024, sum(a, 1024));
-    assert_int_equal(256,a[0]);    
-    assert_int_equal(256,a[1]);
-    assert_int_equal(256,a[2]);    
-    assert_int_equal(256,a[3]);    
-    
-}
-
-void sumLEN_1(){
-    int a[LEN];
-    int i;
-    for(i = 0; i<LEN; a[i++] = 1);
-    assert_int_equal(LEN, sum(a, LEN));
-}
+#define LEN 1024
+#define LEN2 268435456
 
 void psumLEN_1(){
-    int a[LEN];
+    int a[LEN2];
     int i;
-    for(i = 0; i<LEN; a[i++] = 1);
-    assert_int_equal(LEN, parallel_sum(a, LEN));
+    for(i = 0; i<LEN2; a[i++] = 1);
+    assert_int_equal(LEN2, parallel_sum(a, LEN2));
 }
 
-void psumLEN_2(){
-    int a[LEN];
+void psumLEN2_1(){
+    int a[LEN2];
     int i;
-    for(i = 0; i<LEN; a[i++] = 1);
-    assert_int_equal(LEN, parallel_sum2(a, LEN));
+    for(i = 0; i<LEN2; a[i++] = 1);
+    assert_int_equal(LEN2, parallel_sum2(a));
 }
-
 
 void test_fixture_sum(){
     test_fixture_start();
-    run_test(sum1024_1);
-    run_test(sumLEN_1);
     run_test(psumLEN_1);
-    run_test(psumLEN_2);
+    run_test(psumLEN2_1);
     test_fixture_end();
 }
 
