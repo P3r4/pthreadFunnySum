@@ -3,10 +3,10 @@
 #define LEN2 268435456
 
 void psumLEN_1(){
-    int a[LEN2];
+    int a[LEN];
     int i;
     for(i = 0; i<LEN2; a[i++] = 1);
-    assert_int_equal(LEN2, parallel_sum(a, LEN2));
+    assert_int_equal(LEN, parallel_sum(a, LEN));
 }
 
 void psumLEN2_1(){
